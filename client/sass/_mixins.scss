@@ -1,0 +1,4 @@
+@mixin full-borders($color: '#ccc', $radius: 0, $size: 0.1) {
+  border: #{$size}rem solid $color;
+  border-radius: $radius;
+}

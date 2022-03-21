@@ -1,0 +1,22 @@
+.menu {
+  background: #ffe4e4;
+  border: 0.2rem solid #000;
+  border-radius: 0.5rem;
+}
+.menu__container {
+  display: grid;
+  grid-auto-flow: column;
+}
+.menu__container li {
+  list-style: none;
+}
+.menu__container li a {
+  background: #ffe4e4;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.menu__container li a:hover {
+  background: #fff;
+}
+
+/*# sourceMappingURL=styles.css.map */

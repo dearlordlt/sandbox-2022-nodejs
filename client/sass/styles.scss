@@ -1,0 +1,27 @@
+@use "_variables" as var;
+@use "_mixins" as m;
+
+
+
+.menu {
+  background: #ffe4e4;
+  @include m.full-borders(#000, 0.5rem, 0.2);
+
+  &__container {
+    display: grid;
+    grid-auto-flow: column;
+
+    li {
+      list-style: none;
+      a {
+        background: #ffe4e4;
+        display: block;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          background: var.$white;
+        }
+      }
+    }
+  }
+}
