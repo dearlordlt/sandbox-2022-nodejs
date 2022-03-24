@@ -16,3 +16,6 @@ New app: ng new test-app
 Eslint setup: ng add @angular-eslint/schematics@13.1.0
 
 Prettier: npm install prettier eslint-plugin-prettier eslint-config-prettier --save-dev
+
+**HW for lesson 1**: install Angular with all deps: eslint, material etc.
+<hr />
