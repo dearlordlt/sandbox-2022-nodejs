@@ -19,3 +19,11 @@ Prettier: npm install prettier eslint-plugin-prettier eslint-config-prettier --s
 
 **HW for lesson 1**: install Angular with all deps: eslint, material etc.
 <hr />
+
+**HW for lesson 3**: 
+1. Add authorization with BE
+2. Add routing
+3. Create all empty pages + 404
+4. Guards
+5. Backlog work
+<hr />
