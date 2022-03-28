@@ -1,0 +1,15 @@
+<div class="auth-form">
+  <h3>Login page</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  class="auth-form__form">
+    <mat-form-field class="auth-form__row" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="email@domain.com" formControlName="email">
+    </mat-form-field>
+    <mat-form-field class="auth-form__row" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password">
+    </mat-form-field>
+    <button type="submit" color="primary" [disabled]="loginForm.invalid" mat-raised-button>Login</button>
+  </form>
+</div>
+
