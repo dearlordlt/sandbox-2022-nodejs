@@ -27,3 +27,10 @@ Prettier: npm install prettier eslint-plugin-prettier eslint-config-prettier --s
 4. Guards
 5. Backlog work
 <hr />
+**HW for lesson 4**: 
+1. Header
+2. Footer
+3. Main page
+4. Login page
+5. Backlog work
+<hr />
