@@ -1,0 +1,30 @@
+@use "src/variables" as var;
+
+.menu {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+
+  }
+
+  &__list-item {
+
+    a {
+      display: flex;
+      width: 100%;
+      height: 3rem;
+      padding: 0.5rem 0;
+      color: var.$base-color;
+      border-bottom: 0.1rem solid var.$base-color;
+      text-decoration: none;
+      align-items: center;
+
+      &:hover {
+        color: var.$app-white;
+        background: var.$base-color;
+      }
+    }
+  }
+}

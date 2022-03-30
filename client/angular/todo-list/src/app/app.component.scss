@@ -1,0 +1,16 @@
+.sidenav {
+  height: 100%;
+  &__aside {
+    min-width: 20rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+}
+

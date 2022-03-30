@@ -1,0 +1,10 @@
+<nav class="menu">
+  <ul class="menu__list">
+    <li *ngFor="let menuItem of menu; let i = index; trackBy:trackBy" class="menu__list-item">
+      <a class="" [routerLink]="menuItem.route">
+        <mat-icon>{{menuItem.icon}}</mat-icon>
+        <span>{{menuItem.title}}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

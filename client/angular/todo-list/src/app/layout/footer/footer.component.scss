@@ -1,0 +1,14 @@
+@use "src/variables" as var;
+
+.footer {
+  background: var.$base-color;
+  color: var.$app-white;
+  display: flex;
+  padding: 0.5rem;
+
+  &__copyright {
+    text-align: center;
+    align-self: center;
+    width: 100%;
+  }
+}

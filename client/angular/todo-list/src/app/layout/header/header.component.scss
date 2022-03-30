@@ -1,0 +1,26 @@
+@use "src/variables" as var;
+
+.header {
+  background: var.$base-color;
+  display: flex;
+  padding: 1rem;
+  color: var.$app-white;
+
+  &__logo {
+    font-size: 2rem;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+  }
+
+  &__logout {
+    align-self: center;
+    a {
+      color: var.$app-white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
