@@ -3,7 +3,8 @@
     <app-menu></app-menu>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav__content">
-
+    <button (click)="healthCheck()">Health check</button>
+    <app-spinner *ngIf="isSpinnerVisible"></app-spinner>
     <app-header [isLoggedIn]="isLoggedIn" (menuButtonClicked)="aside.toggle()" (loggedOutClicked)="logout()"></app-header>
     <section class="sidenav__main-content">
       <router-outlet></router-outlet>
