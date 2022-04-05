@@ -1,0 +1,10 @@
+.create-todo {
+  position: sticky;
+  padding: 1rem;
+  background: white;
+  top: 0;
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+}

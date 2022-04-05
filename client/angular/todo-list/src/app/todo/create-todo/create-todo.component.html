@@ -1,0 +1,20 @@
+<div class="create-todo">
+  <h3 class="create-todo__title">Create new ToDo</h3>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit(formDirective)"  #formDirective="ngForm" class="create-todo__form">
+    <mat-form-field class="auth-form__row" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input formControlName="name" type="text" matInput>
+    </mat-form-field>
+    <mat-form-field class="auth-form__row" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea formControlName="description" matInput></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Expired at:</mat-label>
+      <input formControlName="expireAt" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button type="submit" [disabled]="createForm.invalid" mat-flat-button color="primary">Create</button>
+  </form>
+</div>

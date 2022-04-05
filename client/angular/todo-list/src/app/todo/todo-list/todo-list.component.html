@@ -1,0 +1,16 @@
+<mat-card class="task" *ngFor="let task of todoTasks; let i=index">
+  <mat-card-title class="task__title">{{task.name}}</mat-card-title>
+  <mat-card-content class="task__content">
+    <p class="task__description">{{task.description}}</p>
+    <p class="task__dates">
+    <div>Created at: {{task.createdAt | date}}</div>
+    <div>Expire at: {{task.expireAt | date}}</div>
+  </mat-card-content>
+  <mat-card-actions class="task__actions">
+    <button class="task__button" mat-flat-button color="primary" [disabled]="task.isDone">Done</button>
+    <button class="task__button" mat-flat-button color="warn">Delete</button>
+  </mat-card-actions>
+  <mat-card-footer *ngIf="task.isDone" class="task__footer">
+    Task complete
+  </mat-card-footer>
+</mat-card>
