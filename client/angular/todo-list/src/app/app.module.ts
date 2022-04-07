@@ -16,7 +16,6 @@ import { LayoutModule } from './layout/layout.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    TodoModule,
     AuthModule,
     SharedModule,
     HttpClientModule,

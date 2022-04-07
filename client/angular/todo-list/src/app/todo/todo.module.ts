@@ -8,17 +8,24 @@ import { SharedModule } from '../shared/shared.module';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchTodoComponent } from './search-todo/search-todo.component';
+import { TodoWarningDirective } from './directives/todo-warning.directive';
 
 const routes: Routes = [
   {
-    path: 'todo',
+    path: '',
     component: TodoComponent,
     canActivate: [AuthGuard],
   },
 ];
 
 @NgModule({
-  declarations: [TodoComponent, TodoListComponent, CreateTodoComponent, SearchTodoComponent],
+  declarations: [
+    TodoComponent,
+    TodoListComponent,
+    CreateTodoComponent,
+    SearchTodoComponent,
+    TodoWarningDirective,
+  ],
   imports: [
     CommonModule,
     SharedModule,

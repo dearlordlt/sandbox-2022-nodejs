@@ -1,4 +1,4 @@
-<mat-card class="task" *ngFor="let task of todoTasks; let i=index">
+<mat-card [appTodoWarning]="task" class="task" *ngFor="let task of (todoTasks$ | async); let i=index">
   <mat-card-title class="task__title">{{task.name}}</mat-card-title>
   <mat-card-content class="task__content">
     <p class="task__description">{{task.description}}</p>

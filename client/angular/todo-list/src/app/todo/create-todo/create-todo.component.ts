@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { TodoService } from '../services/todo.service';
+import { take } from 'rxjs/operators';
 import { SpinnerService } from '../../shared/services/spinner.service';
 
 @Component({
@@ -20,11 +21,13 @@ export class CreateTodoComponent {
     expireAt: new FormControl('', [Validators.required]),
   });
 
-  constructor(
-    private todoService: TodoService,
-    private spinnerService: SpinnerService
-  ) {}
+  constructor(private todoService: TodoService) {}
 
+  /**
+   * Create new todoItem and save it on array
+   *
+   * @param formRef
+   */
   onSubmit(formRef: FormGroupDirective) {
     const { value } = this.createForm;
     const newTodo = {
@@ -34,11 +37,13 @@ export class CreateTodoComponent {
       expireAt: value.expireAt,
       isDone: false,
     };
-    this.spinnerService.showSpinner();
-    this.todoService.createTodo(newTodo).subscribe((res: string) => {
-      console.log(res);
-      this.createForm.reset();
-      formRef.resetForm();
-    });
+    this.todoService
+      .createTodo(newTodo)
+      .pipe(take(1))
+      .subscribe((res: string) => {
+        console.log(res);
+        this.createForm.reset();
+        formRef.resetForm();
+      });
   }
 }

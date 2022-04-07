@@ -4,12 +4,16 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = 3002;
 app.use(cors());
-app.get('/api/login', (req, res) => {
+app.get('/api/login', async (req, res) => {
     const { user, password } = req.query;
     if (user === 'test@test.com' && password === '1234567') {
         const jwtBearerToken = jwt.sign({ user }, 'secret', { expiresIn: '1h' });
+        await new Promise((resolve, reject) => {
+            setTimeout(() => { resolve('timer') }, 3500)
+        })
         return res.send({ apiKey: jwtBearerToken, expiresIn: 10 * 60 * 1000 })
     }
+
     return res.status(401).send('Non auth');
 })
 
