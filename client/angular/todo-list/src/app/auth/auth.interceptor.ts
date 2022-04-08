@@ -8,7 +8,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { filter, tap } from 'rxjs/operators';
+import { filter, tap, catchError } from 'rxjs/operators';
 import { AuthService } from './services/auth.service';
 import { SpinnerService } from '../shared/services/spinner.service';
 
@@ -31,12 +31,19 @@ export class AuthInterceptor implements HttpInterceptor {
       });
       return next.handle(cloned);
     }
-    return next.handle(request).pipe(
-      tap((event) => console.log(event)),
-      filter(
-        (event: HttpEvent<any>) => event instanceof HttpResponse || !event.type
-      ),
-      tap(() => this.spinnerService.hideSpinner())
-    );
+    return next
+      .handle(request)
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          this.spinnerService.hideSpinner();
+          return new Observable((subscriber) => {
+            subscriber.next(err);
+          });
+        })
+      )
+      .pipe(
+        filter((event: any) => event instanceof HttpResponse),
+        tap(() => this.spinnerService.hideSpinner())
+      );
   }
 }

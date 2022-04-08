@@ -17,6 +17,7 @@ export class SpinnerService {
   }
 
   showSpinner() {
+    console.log('showSpinner');
     this.isSpinnerVisible$.next(true);
   }
 

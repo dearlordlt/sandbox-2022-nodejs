@@ -17,7 +17,7 @@ export class AuthService {
       .set('user', email)
       .set('password', password);
     return this.http
-      .get<IAuth>(`${this.url}/api/login`, { ...params, withCredentials: true })
+      .get<IAuth>(`${this.url}/api/login`, { params })
       .pipe(tap((res: IAuth) => this.setSession(res)));
   }
 
