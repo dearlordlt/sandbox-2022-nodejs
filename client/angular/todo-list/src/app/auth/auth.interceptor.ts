@@ -7,7 +7,7 @@ import {
   HttpResponse,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { filter, tap, catchError } from 'rxjs/operators';
 import { AuthService } from './services/auth.service';
 import { SpinnerService } from '../shared/services/spinner.service';
@@ -36,9 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
       .pipe(
         catchError((err: HttpErrorResponse) => {
           this.spinnerService.hideSpinner();
-          return new Observable((subscriber) => {
-            subscriber.next(err);
-          });
+          return throwError(() => err);
         })
       )
       .pipe(
