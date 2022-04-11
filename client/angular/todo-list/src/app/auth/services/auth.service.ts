@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { IAuth } from '../models/auth.model';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable, Subscriber, throwError } from 'rxjs';
 import { APP_CONFIG } from '../../app.config';
 
 @Injectable({
@@ -16,9 +16,10 @@ export class AuthService {
     const params = new HttpParams()
       .set('user', email)
       .set('password', password);
-    return this.http
-      .get<IAuth>(`${this.url}/api/login`, { params })
-      .pipe(tap((res: IAuth) => this.setSession(res)));
+    return this.http.get<IAuth>(`${this.url}/api/login`, { params }).pipe(
+      tap((res: IAuth) => this.setSession(res)),
+      catchError((err) => throwError(() => '401'))
+    );
   }
 
   healthCheck() {
