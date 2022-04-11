@@ -34,8 +34,12 @@ Prettier: npm install prettier eslint-plugin-prettier eslint-config-prettier --s
 4. Login page
 5. Backlog work
 <hr />
-HW lesson 5
+**HW lesson 5**
 1. Separate logic from the main and login page into components
 2. Add all static pages
 3. Backlog work
+<hr />
+**HW lesson 7**
+1. Cover one service with UT
+2. Backlog work
 
