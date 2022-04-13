@@ -9,6 +9,12 @@ import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchTodoComponent } from './search-todo/search-todo.component';
 import { TodoWarningDirective } from './directives/todo-warning.directive';
+import { StoreModule } from '@ngrx/store';
+import { reducer, todoFeatureKey } from './store/reducer/todo.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from './store/effect/todo.effects';
+import { TodoListContainerComponent } from './todo-list/todo-list.container';
+import { CreateTodoContainerComponent } from './create-todo/create-todo.container';
 
 const routes: Routes = [
   {
@@ -25,12 +31,16 @@ const routes: Routes = [
     CreateTodoComponent,
     SearchTodoComponent,
     TodoWarningDirective,
+    TodoListContainerComponent,
+    CreateTodoContainerComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
+    StoreModule.forFeature(todoFeatureKey, reducer),
+    EffectsModule.forFeature([TodoEffects]),
   ],
 })
 export class TodoModule {}

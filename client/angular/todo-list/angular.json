@@ -120,6 +120,6 @@
   },
   "defaultProject": "todo-list",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@ngrx/schematics"
   }
 }

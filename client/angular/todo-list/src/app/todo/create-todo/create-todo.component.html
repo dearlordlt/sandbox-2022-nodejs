@@ -1,6 +1,6 @@
 <div class="create-todo">
   <h3 class="create-todo__title">Create new ToDo</h3>
-  <form [formGroup]="createForm" (ngSubmit)="onSubmit(formDirective)"  #formDirective="ngForm" class="create-todo__form">
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  #formDirective="ngForm" class="create-todo__form">
     <mat-form-field class="auth-form__row" appearance="fill">
       <mat-label>Title</mat-label>
       <input formControlName="name" type="text" matInput>
